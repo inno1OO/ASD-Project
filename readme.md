@@ -7,10 +7,10 @@ After a 40 days of fasting, a group of young Christian decided to create a group
 ## Table of Contents
 
 - [Installation](#installation)
-- [Problem Statement](#problemstatement)
+- [Problem Statement](#problem-statement)
 - [Architecture](#architecture)
-- [Class Diagram](#classdiagram)
-- [ER Diagram](#erdiagram)
+- [Class Diagram](#class-diagram)
+- [ER Diagram](#erd-iagram)
 
 ## Installation
 
