@@ -11,6 +11,10 @@ After a 40 days of fasting, a group of young Christian decided to create a group
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+- Problem Statement
+- Architecture
+- Class Diagram
+- ER Diagram
 
 ## Installation
 
