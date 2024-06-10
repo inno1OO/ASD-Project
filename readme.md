@@ -20,3 +20,15 @@ Instructions on how to install and set up the project. For example:
    ```sh
    git clone https://github.com/your_username/project_name.git
 
+
+## Problem Statement
+
+
+## Architecture
+
+
+## Class Diagram
+
+
+## ER Diagram
+
