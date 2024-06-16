@@ -23,6 +23,7 @@ The system must be able to manage the meetings link, we have weekly prayer on zo
 
 
 ## Class Diagram
+![image](https://github.com/inno1OO/ASD-Project/assets/36110389/496c1c92-9eb0-4e50-bf5b-eabcc294d96e)
 
 
 ## ER Diagram
