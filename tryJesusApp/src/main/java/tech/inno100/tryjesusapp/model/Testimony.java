@@ -18,6 +18,7 @@ public class Testimony {
     private Long testimonyId;
     private String domain;
     private String details;
+    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY)

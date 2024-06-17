@@ -30,10 +30,12 @@ public class Devotion {
     @NotBlank(message = "Empty-Blank-Null not allowed")
     private String prayer;
     private LocalDate devotionDate;
+//    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
+    @Column(name = "done_date", columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate doneDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_idd")
     private Member member;
 
     public Devotion(String questionOne, String questionTwo, String questionThree, String prayer, LocalDate devotionDate, LocalDate doneDate) {

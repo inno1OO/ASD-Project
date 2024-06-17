@@ -21,7 +21,7 @@ public class Event {
     private LocalDate date;
     private String link;
     private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDateTime endTime;
     private String description;
     private String cover;
     private String platform;
@@ -29,17 +29,17 @@ public class Event {
     private String eventCategory;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_idd")
     private Member member;
 
     // Parameterized constructor
-    public Event(String name, LocalDate date, String link, LocalDateTime start, LocalDateTime end,
+    public Event(String name, LocalDate date, String link, LocalDateTime start, LocalDateTime endTime,
                  String description, String cover, String platform, String recordedLink, String eventCategory) {
         this.name = name;
         this.date = date;
         this.link = link;
         this.start = start;
-        this.end = end;
+        this.endTime = endTime;
         this.description = description;
         this.cover = cover;
         this.platform = platform;

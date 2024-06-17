@@ -32,6 +32,8 @@ public class MemberDto {
     private String password;
     private boolean isActive;
 
+    private UserDto userDto;
+
     public MemberDto(String firstName, String lastName, String email, String phoneNumber, LocalDate birthday, String status, String matrimonialStatus, String password, boolean isActive) {
         this.firstName = firstName;
         this.lastName = lastName;

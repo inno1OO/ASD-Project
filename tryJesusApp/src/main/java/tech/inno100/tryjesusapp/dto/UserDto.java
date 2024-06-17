@@ -20,7 +20,7 @@ public class UserDto {
     private String status;
     private LocalDateTime updateDate;
 
-    public UserDto(Long userId, String username, String password, String status) {
+    public UserDto(String username, String password, String status) {
         this.username = username;
         this.password = password;
         this.status = status;

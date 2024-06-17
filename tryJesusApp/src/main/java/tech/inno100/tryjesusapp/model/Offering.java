@@ -20,10 +20,11 @@ public class Offering {
     private Double amount;
     private String currency;
     private String account;
+    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_idd")
     private Member member;
 
     // Parameterized constructor

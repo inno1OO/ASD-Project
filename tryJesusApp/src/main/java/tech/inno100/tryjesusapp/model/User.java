@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "member_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,18 +22,19 @@ public class User {
     @Size(min = 8, max = 16)
     private String password;
     private String status;
+//    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
+//    @Column(name = "update_date", columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDateTime updateDate;
 
     @OneToOne(mappedBy = "primaryUser",  fetch = FetchType.LAZY)
-    private User user;
+    private Member member;
 
 
 
     // Parameterized constructor
-    public User(String username, String password, String status, LocalDateTime updateDate) {
+    public User(String username, String password, String status) {
         this.username = username;
         this.password = password;
         this.status = status;
-        this.updateDate = updateDate;
     }
 }

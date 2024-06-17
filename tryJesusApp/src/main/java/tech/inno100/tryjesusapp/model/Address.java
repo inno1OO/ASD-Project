@@ -20,8 +20,9 @@ public class Address {
     private boolean isCurrent;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_idd")
     private Member member;
+
 
     // Parameterized constructor
     public Address(String country, String city, String street, boolean isCurrent) {

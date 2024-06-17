@@ -5,5 +5,6 @@ import tech.inno100.tryjesusapp.dto.MemberDto;
 import java.util.Optional;
 
 public interface MemberService {
-    Optional<MemberDto> findById(Long id);
+    Optional<MemberDto> findByMemberId(Long id);
+    Optional<MemberDto> addNewMember(MemberDto member);
 }

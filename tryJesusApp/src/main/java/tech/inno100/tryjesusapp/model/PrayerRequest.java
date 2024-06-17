@@ -23,6 +23,7 @@ public class PrayerRequest {
     @Column(nullable = false)
     @NotBlank(message = "Empty-Blank-Null not allowed")
     private String reason;
+    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate date;
     private boolean isExecuted;
     private String level;

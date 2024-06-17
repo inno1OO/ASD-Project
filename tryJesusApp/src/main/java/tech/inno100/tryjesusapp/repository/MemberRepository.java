@@ -6,5 +6,5 @@ import tech.inno100.tryjesusapp.model.Member;
 import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-    Optional<Member> findBy(Long memberId);
+    Optional<Member> findByMemberId(Long memberId);
 }
