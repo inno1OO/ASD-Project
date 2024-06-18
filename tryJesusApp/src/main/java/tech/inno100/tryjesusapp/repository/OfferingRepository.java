@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface OfferingRepository extends JpaRepository<Offering, Long> {
-    Optional<Offering> findByOfferingId(Long offeringId);
+//    Optional<Offering> findByOfferingId(Long offeringId);
 //    List<Offering> findByMemberId(Long memberId);
 }

@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TestimonyRepository extends JpaRepository<Testimony, Long> {
-    Optional<Testimony> findByTestimonyId(Long testimonyId);
+//    Optional<Testimony> findByTestimonyId(Long testimonyId);
 //    List<Testimony> findByMemberId(Long memberId);
 }

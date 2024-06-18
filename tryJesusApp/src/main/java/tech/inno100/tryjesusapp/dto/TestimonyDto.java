@@ -1,32 +1,23 @@
-package tech.inno100.tryjesusapp.model;
+package tech.inno100.tryjesusapp.dto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.inno100.tryjesusapp.model.Member;
 
 import java.time.LocalDate;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "testimony")
-public class Testimony {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long testimonyId;
+public class TestimonyDto {
     private String domain;
     private String details;
     @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate date;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "member_id")
-    private Member member;
-
     // Parameterized constructor
-    public Testimony(String domain, String details, LocalDate date) {
+    public TestimonyDto(String domain, String details, LocalDate date) {
         this.domain = domain;
         this.details = details;
         this.date = date;

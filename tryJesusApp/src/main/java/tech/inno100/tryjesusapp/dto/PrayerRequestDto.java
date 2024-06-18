@@ -1,22 +1,18 @@
-package tech.inno100.tryjesusapp.model;
+package tech.inno100.tryjesusapp.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.inno100.tryjesusapp.model.Member;
 
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "prayer_request")
-public class PrayerRequest {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long prayerRequestId;
+public class PrayerRequestDto {
     @Column(nullable = false)
     @NotBlank(message = "Empty-Blank-Null not allowed")
     private String category;
@@ -28,12 +24,8 @@ public class PrayerRequest {
     private boolean isExecuted;
     private String level;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "member_id")
-    private Member member;
-
     // Parameterized constructor
-    public PrayerRequest(String category, String reason, LocalDate date, boolean isExecuted, String level) {
+    public PrayerRequestDto(String category, String reason, LocalDate date, boolean isExecuted, String level) {
         this.category = category;
         this.reason = reason;
         this.date = date;

@@ -29,8 +29,6 @@ public class User {
     @OneToOne(mappedBy = "primaryUser",  fetch = FetchType.LAZY)
     private Member member;
 
-
-
     // Parameterized constructor
     public User(String username, String password, String status) {
         this.username = username;

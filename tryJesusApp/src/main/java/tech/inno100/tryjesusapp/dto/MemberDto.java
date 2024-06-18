@@ -29,12 +29,12 @@ public class MemberDto {
     private LocalDate birthday;
     private String status;
     private String matrimonialStatus;
-    private String password;
     private boolean isActive;
 
-    private UserDto userDto;
+    private Long userId;
+    private Long pairId;
 
-    public MemberDto(String firstName, String lastName, String email, String phoneNumber, LocalDate birthday, String status, String matrimonialStatus, String password, boolean isActive) {
+    public MemberDto(String firstName, String lastName, String email, String phoneNumber, LocalDate birthday, String status, String matrimonialStatus, boolean isActive) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -42,7 +42,6 @@ public class MemberDto {
         this.birthday = birthday;
         this.status = status;
         this.matrimonialStatus = matrimonialStatus;
-        this.password = password;
         this.isActive = isActive;
 
     }

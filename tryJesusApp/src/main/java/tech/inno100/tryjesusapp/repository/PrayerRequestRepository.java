@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PrayerRequestRepository extends JpaRepository<PrayerRequest, Long> {
-    Optional<PrayerRequest> findByPrayerRequestId(Long prayerRequestId);
+//    Optional<PrayerRequest> findByPrayerRequestId(Long prayerRequestId);
 //    List<PrayerRequest> findByMemberId(Long memberId);
 }

@@ -1,9 +1,10 @@
-package tech.inno100.tryjesusapp.model;
+package tech.inno100.tryjesusapp.dto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.inno100.tryjesusapp.model.Member;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,12 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "event")
-public class Event {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long eventId;
+public class EventDto {
     private String name;
     private LocalDate date;
     private String link;
@@ -28,12 +24,9 @@ public class Event {
     private String recordedLink;
     private String eventCategory;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "member_id")
-    private Member member;
 
     // Parameterized constructor
-    public Event(String name, LocalDate date, String link, LocalDateTime start, LocalDateTime endTime,
+    public EventDto(String name, LocalDate date, String link, LocalDateTime start, LocalDateTime endTime,
                  String description, String cover, String platform, String recordedLink, String eventCategory) {
         this.name = name;
         this.date = date;

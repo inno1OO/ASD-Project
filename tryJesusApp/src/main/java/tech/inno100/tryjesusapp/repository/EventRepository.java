@@ -7,5 +7,5 @@ import tech.inno100.tryjesusapp.model.Event;
 import java.util.Optional;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
-    Optional<Event> findByEventId(Long eventId);
+//    Optional<Event> findByEventId(Long eventId);
 }
