@@ -12,7 +12,9 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class PrayerRequestDto {
+    private Long prayerRequestId;
     @Column(nullable = false)
     @NotBlank(message = "Empty-Blank-Null not allowed")
     private String category;

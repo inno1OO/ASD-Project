@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OfferingDto {
+    private Long offeringId;
     private String reason;
     private Double amount;
     private String currency;

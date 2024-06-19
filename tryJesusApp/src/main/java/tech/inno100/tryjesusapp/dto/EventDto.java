@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventDto {
+    private Long eventId;
     private String name;
     private LocalDate date;
     private String link;

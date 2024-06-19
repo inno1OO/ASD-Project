@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 import tech.inno100.tryjesusapp.model.Member;
 
 import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TestimonyDto {
+    private Long testimonyId;
     private String domain;
     private String details;
     @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")

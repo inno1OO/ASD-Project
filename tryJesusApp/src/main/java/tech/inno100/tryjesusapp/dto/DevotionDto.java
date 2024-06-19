@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DevotionDto {
+    private Long devotionId;
     @Column(nullable = false)
     @NotBlank(message = "Empty-Blank-Null not allowed")
     private String questionOne;
