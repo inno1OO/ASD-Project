@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TestimonyService {
-    Optional<TestimonyDto> addTestimony(TestimonyDto testimonyDto);
+    Optional<TestimonyDto> addTestimony(Long id, TestimonyDto testimonyDto);
     Optional<TestimonyDto> updateTestimony(Long testimonyId, TestimonyDto testimonyDto);
     Optional<TestimonyDto> deleteTestimony(Long testimonyId);
     Optional<TestimonyDto> getTestimony(Long testimonyId);

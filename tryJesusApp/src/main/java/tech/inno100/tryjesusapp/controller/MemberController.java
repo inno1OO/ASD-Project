@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import tech.inno100.tryjesusapp.dto.MemberDto;
 import tech.inno100.tryjesusapp.service.MemberService;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -33,6 +34,33 @@ public class MemberController {
             return ResponseEntity.ok(responseDto.get());
         }
 //        throw new CustomerNotFoundException(id + " not found");
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<MemberDto> updateMember(@PathVariable("id") Long id, @RequestBody MemberDto member){
+        Optional<MemberDto> responseDto = memberService.updateMember(id, member);
+        if (responseDto.isPresent()) {
+            return ResponseEntity.ok(responseDto.get());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<MemberDto> deleteMember(@PathVariable Long id){
+        Optional<MemberDto> responseDto = memberService.deleteMember(id);
+        if (responseDto.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<MemberDto>> getAllMembers(){
+        Optional<List<MemberDto>> responseDto = memberService.getAllMembers();
+        if (responseDto.isPresent()) {
+            return ResponseEntity.ok(responseDto.get());
+        }
         return ResponseEntity.notFound().build();
     }
 }

@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface DevotionRepository extends JpaRepository<Devotion, Long> {
 //    Optional<Devotion> findByDevotionId(Long devotionId);
-//    List<Devotion> findByMemberId(Long memberId);
+    Optional <List<Devotion>> findByMemberId(Long memberId);
 }

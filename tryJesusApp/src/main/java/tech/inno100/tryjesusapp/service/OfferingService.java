@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface OfferingService {
-    Optional<OfferingDto> addOffering(OfferingDto offeringDto);
+    Optional<OfferingDto> addOffering(Long id, OfferingDto offeringDto);
     Optional<OfferingDto> updateOffering(Long offeringId, OfferingDto offeringDto);
     Optional<OfferingDto> deleteOffering(Long offeringId);
     Optional<OfferingDto> getOffering(Long offeringId);
