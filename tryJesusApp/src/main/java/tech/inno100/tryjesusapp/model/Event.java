@@ -28,7 +28,7 @@ public class Event {
     private String recordedLink;
     private String eventCategory;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "member_id")
     private Member member;
 

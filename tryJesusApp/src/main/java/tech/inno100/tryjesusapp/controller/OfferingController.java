@@ -2,6 +2,7 @@ package tech.inno100.tryjesusapp.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.inno100.tryjesusapp.dto.OfferingDto;
 import tech.inno100.tryjesusapp.service.OfferingService;
@@ -61,6 +62,7 @@ public class OfferingController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('admin:write', 'admin:read')")
     public ResponseEntity<List<OfferingDto>> getAllOfferings(){
         Optional<List<OfferingDto>> offerings = offeringService.getAllOfferings();
         if(offerings.isPresent()){

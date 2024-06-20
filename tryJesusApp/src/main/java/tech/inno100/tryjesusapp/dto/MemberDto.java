@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.inno100.tryjesusapp.model.Member;
+import tech.inno100.tryjesusapp.model.User;
 
 import java.time.LocalDate;
 
@@ -30,9 +31,11 @@ public class MemberDto {
     private String status;
     private String matrimonialStatus;
     private boolean isActive;
+//    private String userName;
+//    private String password;
+//    private String role;
+    private User user;
 
-    private Long userId;
-    private Long pairId;
 
     public MemberDto(String firstName, String lastName, String email, String phoneNumber, LocalDate birthday, String status, String matrimonialStatus, boolean isActive) {
         this.firstName = firstName;

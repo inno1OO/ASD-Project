@@ -28,7 +28,7 @@ public class PrayerRequest {
     private boolean isExecuted;
     private String level;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "member_id")
     private Member member;
 

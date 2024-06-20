@@ -21,7 +21,7 @@ public class Testimony {
     @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate date;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "member_id")
     private Member member;
 

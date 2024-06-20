@@ -37,10 +37,11 @@ public class Member {
     private String matrimonialStatus;
     private boolean isActive;
 
+
     //ontoone with user
-    @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User primaryUser;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     //self
 //    @OneToOne(mappedBy = "partner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

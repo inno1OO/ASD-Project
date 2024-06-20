@@ -2,6 +2,7 @@ package tech.inno100.tryjesusapp.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.inno100.tryjesusapp.dto.DevotionDto;
 import tech.inno100.tryjesusapp.service.DevotionService;
@@ -25,7 +26,7 @@ public class DevotionController {
     }
 
     @GetMapping("/devotion/{id}")
-    public ResponseEntity<DevotionDto> getDevotion(@PathVariable Long id){
+    public ResponseEntity<DevotionDto> getDevotion(@PathVariable("id") Long id){
         Optional<DevotionDto> devotion = devotionService.getDevotion(id);
         if(devotion.isPresent()){
             return ResponseEntity.ok(devotion.get());
@@ -34,7 +35,7 @@ public class DevotionController {
     }
 
     @PutMapping("/devotion/{id}")
-    public ResponseEntity<DevotionDto> updateDevotion(@PathVariable Long id, @RequestBody DevotionDto devotionDto){
+    public ResponseEntity<DevotionDto> updateDevotion(@PathVariable("id") Long id, @RequestBody DevotionDto devotionDto){
         Optional<DevotionDto> devotion = devotionService.updateDevotion(id, devotionDto);
         if(devotion.isPresent()){
             return ResponseEntity.ok(devotion.get());
@@ -43,7 +44,7 @@ public class DevotionController {
     }
 
     @DeleteMapping("/devotion/{id}")
-    Optional<DevotionDto> deleteDevotion(@PathVariable Long id){
+    Optional<DevotionDto> deleteDevotion(@PathVariable("id") Long id){
         Optional<DevotionDto> devotion = devotionService.getDevotion(id);
         if(devotion.isPresent()){
             devotionService.deleteDevotion(id);
@@ -52,7 +53,7 @@ public class DevotionController {
     }
 
     @GetMapping("/member/{id}")
-    public ResponseEntity<List<DevotionDto>> getDevotionByMemberId(@PathVariable Long memberId){
+    public ResponseEntity<List<DevotionDto>> getDevotionByMemberId(@PathVariable("id") Long memberId){
         Optional<List<DevotionDto>> devotionDto = devotionService.getDevotionByMemberId(memberId);
         if(devotionDto.isPresent()){
             return ResponseEntity.ok(devotionDto.get());
@@ -61,6 +62,7 @@ public class DevotionController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('member:read', 'member:write', 'admin:write', 'admin:read')")
     public ResponseEntity<List<DevotionDto>> getAllDevotions(){
         Optional<List<DevotionDto>> devotions = devotionService.getAllDevotions();
         if(devotions.isPresent()){
