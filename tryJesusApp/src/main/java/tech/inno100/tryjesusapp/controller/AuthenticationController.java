@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import tech.inno100.tryjesusapp.auth.AuthenticationRequest;
 import tech.inno100.tryjesusapp.auth.AuthenticationResponse;
 import tech.inno100.tryjesusapp.dto.MemberDto;
+import tech.inno100.tryjesusapp.exception.member.MemberNotFoundException;
 import tech.inno100.tryjesusapp.service.AuthenticationService;
 import tech.inno100.tryjesusapp.service.MemberService;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -35,8 +39,15 @@ public class AuthenticationController {
     }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
-        return ResponseEntity.ok(
-                authenticationService.authenticate(request)
-        );
+        AuthenticationResponse memberDto = authenticationService.authenticate(request);
+        if (memberDto.toString().isEmpty()) {
+
+            throw new MemberNotFoundException("Wrong username or password");
+        }else{
+            return ResponseEntity.ok(memberDto);
+        }
+//        return ResponseEntity.ok(
+//                authenticationService.authenticate(request)
+//        );
     }
 }

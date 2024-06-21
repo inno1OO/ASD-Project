@@ -33,10 +33,11 @@ public class AuthenticationService {
         var user = userRepository.findByUsername(request.getUsername()).orElseThrow(
                 () -> new UsernameNotFoundException("User not found")
         );
+
+
         //generate token
         String token  = jwtService.generateToken(user);
-        return AuthenticationResponse
-                .builder()
+        return AuthenticationResponse.builder()
                 .token(token)
                 .build();
     }
