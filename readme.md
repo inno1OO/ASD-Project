@@ -41,6 +41,7 @@ CRUD operation on an offering. The offering is not mandatory, but we encorage an
 
 
 ## Architecture
+![tryJesus](https://github.com/inno1OO/ASD-Project/assets/36110389/1905b9ca-57a7-469f-acd0-11da13830c15)
 
 
 ## Class Diagram
@@ -48,4 +49,5 @@ CRUD operation on an offering. The offering is not mandatory, but we encorage an
 ![image](https://github.com/inno1OO/ASD-Project/assets/36110389/557474aa-7ef0-4639-ad6b-10bd31e1f212)
 
 ## ER Diagram
+![er diagram](https://github.com/inno1OO/ASD-Project/assets/36110389/d4c1b942-de03-462e-8d6d-6cf6ddc1b006)
 
