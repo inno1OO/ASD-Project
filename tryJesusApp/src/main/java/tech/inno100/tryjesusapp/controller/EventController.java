@@ -28,7 +28,7 @@ public class EventController {
 
     @PutMapping("/event/{id}")
     @PreAuthorize("hasAuthority('admin:write')")
-    public ResponseEntity<EventDto> updateEvent(@PathVariable Long id, @RequestBody EventDto eventDto){
+    public ResponseEntity<EventDto> updateEvent(@PathVariable("id") Long id, @RequestBody EventDto eventDto){
         Optional<EventDto> eventDtoOptional = eventService.updateEvent(id, eventDto);
         if(eventDtoOptional.isPresent()){
             return ResponseEntity.ok(eventDtoOptional.get());
@@ -38,7 +38,7 @@ public class EventController {
 
     @DeleteMapping("event/{id}")
     @PreAuthorize("hasAuthority('admin:write')")
-    public ResponseEntity<EventDto> deleteEvent(@PathVariable Long id){
+    public ResponseEntity<EventDto> deleteEvent(@PathVariable("id") Long id){
         Optional<EventDto> eventDtoOptional = eventService.deleteEvent(id);
         if(eventDtoOptional.isPresent()){
             return ResponseEntity.ok(eventDtoOptional.get());
@@ -48,7 +48,7 @@ public class EventController {
 
     @GetMapping("/event/{id}")
     @PreAuthorize("hasAnyAuthority('member:read', 'member:write', 'admin:write', 'admin:read')")
-    public ResponseEntity<EventDto> getEventById(@PathVariable Long id){
+    public ResponseEntity<EventDto> getEventById(@PathVariable("id") Long id){
         Optional<EventDto> eventDtoOptional = eventService.getEventById(id);
         if(eventDtoOptional.isPresent()){
             return ResponseEntity.ok(eventDtoOptional.get());

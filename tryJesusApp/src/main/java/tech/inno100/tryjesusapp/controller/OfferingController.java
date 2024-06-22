@@ -17,7 +17,7 @@ public class OfferingController {
     private final OfferingService offeringService;
 
     @PostMapping("/member/{id}")
-    public ResponseEntity<OfferingDto> addOffering(@PathVariable Long id, @RequestBody OfferingDto offeringDto){
+    public ResponseEntity<OfferingDto> addOffering(@PathVariable("id") Long id, @RequestBody OfferingDto offeringDto){
         Optional<OfferingDto> offeringDtoOptional = offeringService.addOffering(id, offeringDto);
         if(offeringDtoOptional.isPresent()){
             return ResponseEntity.ok(offeringDtoOptional.get());
@@ -35,7 +35,7 @@ public class OfferingController {
     }
 
     @DeleteMapping("/offering/{id}")
-    public ResponseEntity<OfferingDto> deleteOffering(@PathVariable Long offeringId){
+    public ResponseEntity<OfferingDto> deleteOffering(@PathVariable("id") Long offeringId){
         Optional<OfferingDto> offering = offeringService.deleteOffering(offeringId);
         if(offering.isPresent()){
             return ResponseEntity.ok(offering.get());
@@ -44,7 +44,7 @@ public class OfferingController {
     }
 
     @GetMapping("/offering/{id}")
-    public ResponseEntity<OfferingDto> getOffering(@PathVariable Long offeringId){
+    public ResponseEntity<OfferingDto> getOffering(@PathVariable("id") Long offeringId){
         Optional<OfferingDto> offering = offeringService.getOffering(offeringId);
         if(offering.isPresent()){
             return ResponseEntity.ok(offering.get());
@@ -53,7 +53,7 @@ public class OfferingController {
     }
 
     @GetMapping("/member/{id}")
-    public ResponseEntity<List<OfferingDto>> getAllOfferingsByMemberId(@PathVariable Long memberId){
+    public ResponseEntity<List<OfferingDto>> getAllOfferingsByMemberId(@PathVariable("id") Long memberId){
         Optional<List<OfferingDto>> offerings  = offeringService.getAllOfferingsByMemberId(memberId);
         if(offerings.isPresent()){
             return ResponseEntity.ok(offerings.get());

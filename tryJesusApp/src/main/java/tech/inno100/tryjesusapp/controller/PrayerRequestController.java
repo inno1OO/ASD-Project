@@ -16,7 +16,7 @@ public class PrayerRequestController {
     private final PrayerRequestService prayerRequestService;
 
     @PostMapping("/member/{id}")
-    public ResponseEntity<PrayerRequestDto> addPrayerRequest(@PathVariable Long id, @RequestBody PrayerRequestDto prayerRequestDto){
+    public ResponseEntity<PrayerRequestDto> addPrayerRequest(@PathVariable("id") Long id, @RequestBody PrayerRequestDto prayerRequestDto){
         Optional<PrayerRequestDto> prayerRequestDto1 = prayerRequestService.addPrayerRequest(id, prayerRequestDto);
         if(prayerRequestDto1.isPresent()){
             return ResponseEntity.ok().body(prayerRequestDto1.get());
@@ -25,7 +25,7 @@ public class PrayerRequestController {
     }
 
     @GetMapping("prayer/{id}")
-    public ResponseEntity<PrayerRequestDto> getPrayerRequestById(@PathVariable Long id){
+    public ResponseEntity<PrayerRequestDto> getPrayerRequestById(@PathVariable("id") Long id){
         Optional<PrayerRequestDto> prayerRequestDto1 = prayerRequestService.getPrayerRequestById(id);
         if(prayerRequestDto1.isPresent()){
             return ResponseEntity.ok().body(prayerRequestDto1.get());
@@ -43,13 +43,13 @@ public class PrayerRequestController {
     }
 
     @DeleteMapping("prayer/{id}")
-    public ResponseEntity<PrayerRequestDto> deletePrayerRequestById(@PathVariable Long id){
+    public ResponseEntity<PrayerRequestDto> deletePrayerRequestById(@PathVariable("id") Long id){
         prayerRequestService.deletePrayerRequestById(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/member/{id}")
-    public ResponseEntity<List<PrayerRequestDto>> getAllPrayerRequestsByMemberId(@PathVariable Long userId){
+    public ResponseEntity<List<PrayerRequestDto>> getAllPrayerRequestsByMemberId(@PathVariable("id") Long userId){
         Optional<List<PrayerRequestDto>> prayerRequestDtos = prayerRequestService.getAllPrayerRequestsByMemberId(userId);
         if(prayerRequestDtos.isPresent()){
             return ResponseEntity.ok().body(prayerRequestDtos.get());
@@ -58,7 +58,7 @@ public class PrayerRequestController {
     }
 
     @GetMapping("/categories/{category}")
-    public ResponseEntity<List<PrayerRequestDto>> getAllPrayerRequestsByCategory(@PathVariable String category){
+    public ResponseEntity<List<PrayerRequestDto>> getAllPrayerRequestsByCategory(@PathVariable("category") String category){
         Optional<List<PrayerRequestDto>> prayer = prayerRequestService.getAllPrayerRequestsByCategory(category);
         if(prayer.isPresent()){
             return ResponseEntity.ok().body(prayer.get());

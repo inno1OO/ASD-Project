@@ -23,7 +23,7 @@ public class MemberController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<MemberDto> getMember(@PathVariable Long id) {
+    public ResponseEntity<MemberDto> getMember(@PathVariable("id") Long id) {
         Optional<MemberDto> responseDto = memberService.getMember(id);
         if (responseDto.isPresent()) {
             return ResponseEntity.ok(responseDto.get());
@@ -42,7 +42,7 @@ public class MemberController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<MemberDto> deleteMember(@PathVariable Long id){
+    public ResponseEntity<MemberDto> deleteMember(@PathVariable("id") Long id){
         Optional<MemberDto> responseDto = memberService.deleteMember(id);
         if (responseDto.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

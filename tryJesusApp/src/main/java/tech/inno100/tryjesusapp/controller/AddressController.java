@@ -18,7 +18,7 @@ public class AddressController {
     private final AddressService addressService;
 
     @PostMapping("/member/{id}")
-    public ResponseEntity<AddressDto> addAddress(@PathVariable Long id, @RequestBody AddressDto addressDto){
+    public ResponseEntity<AddressDto> addAddress(@PathVariable("id") Long id, @RequestBody AddressDto addressDto){
         Optional<AddressDto> address = addressService.addAddress(id, addressDto);
         if(address.isPresent()){
             return ResponseEntity.ok(address.get());
@@ -27,7 +27,7 @@ public class AddressController {
     }
 
     @GetMapping("/address/{id}")
-    public ResponseEntity<AddressDto> getAddress(@PathVariable int id){
+    public ResponseEntity<AddressDto> getAddress(@PathVariable("id") int id){
         Optional<AddressDto> address = addressService.getAddress(id);
         if(address.isPresent()){
             return ResponseEntity.ok(address.get());
@@ -45,7 +45,7 @@ public class AddressController {
     }
 
     @DeleteMapping("address/{id}")
-    public ResponseEntity<AddressDto> deleteAddress(@PathVariable int id){
+    public ResponseEntity<AddressDto> deleteAddress(@PathVariable("id") int id){
         Optional<AddressDto> address = addressService.deleteAddress(id);
         if(address.isPresent()){
             return ResponseEntity.ok(address.get());

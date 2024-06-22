@@ -18,7 +18,7 @@ public class TestimonyController {
     private final TestimonyService testimonyService;
 
     @PostMapping("/member/{id}")
-    public ResponseEntity<TestimonyDto> addTestimony(@PathVariable Long id, @RequestBody TestimonyDto testimonyDto){
+    public ResponseEntity<TestimonyDto> addTestimony(@PathVariable("id") Long id, @RequestBody TestimonyDto testimonyDto){
         Optional<TestimonyDto> testimony = testimonyService.addTestimony(id, testimonyDto);
         if(testimony.isPresent()){
             return ResponseEntity.ok(testimony.get());
@@ -36,7 +36,7 @@ public class TestimonyController {
     }
 
     @DeleteMapping("testimony/{id}")
-    public ResponseEntity<TestimonyDto> deleteTestimony(@PathVariable Long testimonyId){
+    public ResponseEntity<TestimonyDto> deleteTestimony(@PathVariable("id") Long testimonyId){
         Optional<TestimonyDto> testimonyDto1 = testimonyService.deleteTestimony(testimonyId);
         if(testimonyDto1.isPresent()){
             return ResponseEntity.ok(testimonyDto1.get());
@@ -45,7 +45,7 @@ public class TestimonyController {
     }
 
     @GetMapping("testimony/{id}")
-    public ResponseEntity<TestimonyDto> getTestimony(@PathVariable Long testimonyId){
+    public ResponseEntity<TestimonyDto> getTestimony(@PathVariable("id") Long testimonyId){
         Optional<TestimonyDto> testimonyDto1 = testimonyService.getTestimony(testimonyId);
         if(testimonyDto1.isPresent()){
             return ResponseEntity.ok(testimonyDto1.get());
@@ -63,7 +63,7 @@ public class TestimonyController {
     }
 
     @GetMapping("/member/{id}")
-    public ResponseEntity<List<TestimonyDto>> getAllTestimonysByMemberId(@PathVariable Long testimonyId){
+    public ResponseEntity<List<TestimonyDto>> getAllTestimonysByMemberId(@PathVariable("id") Long testimonyId){
         Optional<List<TestimonyDto>> testimonyDtos = testimonyService.getAllTestimonysByMemberId(testimonyId);
         if(testimonyDtos.isPresent()){
             return ResponseEntity.ok(testimonyDtos.get());
